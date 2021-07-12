@@ -1,17 +1,19 @@
 import styled from "styled-components";
-import { Button, Container } from "styles";
+import { Button, Container, Subtitle, TextArea } from "styles";
 import { useDataSave } from "hooks";
 import { useState } from "react";
 import { generatePassword } from "utils";
+import * as S from "styles/pages/create.style";
 
-const Content = styled.div``;
+const Content = styled.div`
+  width: 100%;
+`;
 
 const passLength = 14;
 
 const Create = () => {
   const [error, setError] = useState<null | string>(null);
   const [note, setNote] = useState("");
-  const [completed, setCompleted] = useState(false);
 
   const { dbErr, loading, saveData } = useDataSave("notes");
 
@@ -36,15 +38,16 @@ const Create = () => {
       exit={{ opacity: 0 }}
     >
       <Content>
-        <h1> Create Note </h1>
-        {error && <p> {error} </p>}
-        {dbErr && <p> {dbErr} </p>}
-        <textarea
+        <Subtitle> Create Note </Subtitle>
+        {error && <S.ErrorContainer> {error} </S.ErrorContainer>}
+        {dbErr && <S.ErrorContainer> {dbErr} </S.ErrorContainer>}
+
+        <TextArea
           placeholder='Enter some text...'
-          cols={70}
-          rows={20}
           value={note}
           onChange={e => setNote(e.target.value)}
+          rows={15}
+          cols={65}
         />
         <Button disabled={loading} onClick={handleSaveData}>
           {loading ? "Loading" : "Save"}

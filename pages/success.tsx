@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { firestore } from "firestore";
-import { Container } from "styles";
+import { Container, Subtitle } from "styles";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { GrCopy } from "react-icons/gr";
 import type { GetServerSideProps } from "next";
 import type { Note } from "types";
+import * as S from "styles/pages/succes.style";
 
 interface SuccessProps {
   id: string;
@@ -11,30 +14,38 @@ interface SuccessProps {
 }
 
 const Success: React.FC<SuccessProps> = ({ id, note, error }) => {
-  const [password, setPassword] = useState(note.password);
-
   if (error) {
     return <Container>{error}</Container>;
   }
 
   return (
     <Container animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <p> notatka: {note.note} </p>
+      <Subtitle center>Your Note is online</Subtitle>
 
       <div>
-        <h3>Twoja notatka jest gotowa do odczytu</h3>
-      </div>
+        <S.CopyContainer>
+          <S.RLink href={`/note/${id}`}>{`note/${id}`}</S.RLink>
 
-      <div>
-        <label>
-          Hasło do edycji
-          <input
-            type='text'
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </label>
-        <button>Save new Password</button>
+          <CopyToClipboard text={`http://localhost:3000/note/${id}`}>
+            <button>
+              <GrCopy />
+            </button>
+          </CopyToClipboard>
+        </S.CopyContainer>
+
+        <S.Hr />
+
+        <Subtitle center>Password to editing note</Subtitle>
+
+        <S.CopyContainer>
+          <span> {note.password} </span>
+
+          <CopyToClipboard text={note.password} onCopy={() => {}}>
+            <S.CopyBtn>
+              <GrCopy />
+            </S.CopyBtn>
+          </CopyToClipboard>
+        </S.CopyContainer>
       </div>
     </Container>
   );
