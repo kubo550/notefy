@@ -41,6 +41,7 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
 <details> 
   <summary> Other features </summary>
 
+ * Mobile first
  * Context 
  * Dark mode
  * Absolute imports
