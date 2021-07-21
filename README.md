@@ -9,14 +9,45 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
 ![TypeScript](https://img.shields.io/badge/-TypeScript-05122A?style=flat&logo=typescript)&nbsp;
 ![Styled Components](https://img.shields.io/badge/-styled_components-05122A?style=flat&logo=styled-components)&nbsp;
 
-#### Other Features 
+## Features 
 
-* nookies
-* framer-motion
-* react-icons
-* nProgress
-* context
-* mobile friendly
+
+<details> 
+  <summary> NPM packages </summary>
+   
+  * framer-motion
+  * react-icons 
+  * react-firebase-hooks
+  * react-copy-to-clipboard
+  * styled-normalize
+  * sass
+  * nprogress
+  * nookies
+ 
+</details>
+
+<details> 
+  <summary> Accessibility </summary>
+  
+  * RWD
+  * Semantic HTML
+  * WAI-ARIA
+  * Focus Control
+  * Designing for Screen Reader
+
+</details>
+
+
+<details> 
+  <summary> Other features </summary>
+
+ * Context 
+ * Dark mode
+ * Absolute imports
+ * Custom hooks
+ 
+</details>
+
 
 
 ## Preview
