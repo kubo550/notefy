@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { firestore } from "firestore";
 import { Container } from "components/Navbar/Navbar.style";
-import { Subtitle, TextArea } from "styles";
+import { Button, Subtitle, TextArea } from "styles";
 import type { GetServerSideProps } from "next";
 import type { Note as NoteType } from "types";
 
@@ -43,7 +43,7 @@ const Note: React.FC<NoteProps> = ({ id, note, error }) => {
       {!editing ? (
         <>
           <p> {note.note} </p>
-          <button onClick={handleStartEditing}> Edit </button>
+          <Button onClick={handleStartEditing}> Edit </Button>
         </>
       ) : (
         <>
@@ -58,12 +58,13 @@ const Note: React.FC<NoteProps> = ({ id, note, error }) => {
             type='text'
             value={password}
             onChange={e => setPassword(e.target.value)}
+            style={{ marginBottom: '10px' }}
           />
 
-          <button disabled={incorrectPass} onClick={handleSaveNote}>
+          <Button placeholder="********" disabled={incorrectPass} onClick={handleSaveNote}>
             Save
-          </button>
-          <button onClick={() => setEditing(false)}> Cancel </button>
+          </Button>
+          <Button onClick={() => setEditing(false)}> Cancel </Button>
         </>
       )}
     </div>

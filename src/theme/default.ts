@@ -14,7 +14,7 @@ const light = {
   secondary: "#8ecae6",
   text: "#000814",
   background: "#d8e2dc",
-  extra: "#00296b",
+  extra: "#023047",
 };
 
 const dark = {

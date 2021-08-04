@@ -55,6 +55,7 @@ export const TextArea = styled.textarea`
   margin: 10px 0;
   padding: 10px 5px;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(222, 240, 248, 0.78);
 
   @media ${props => props.theme.breakpoints.md} {
     margin: 10px 2px;

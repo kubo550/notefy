@@ -9,6 +9,6 @@ export const Container = styled(motion.div)`
     background-color: #99cc00;
     padding: 5px 10px;
     border-radius: 20px;
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.extra};
 
 `
