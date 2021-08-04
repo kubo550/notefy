@@ -54,6 +54,11 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
 
 ![previewpng](https://user-images.githubusercontent.com/43968748/128223199-2d793711-6535-45ae-b660-51361dea5b96.png)
 
-## For Developers 
+## For Developers - Usage
 
+1. Download repo to your computer.  ``` git clone https://github.com/kubo550/notefy.git ```
+2. Get into project main folder and install all dependencies ``` npm i ``` *or if you are using yarn* ``` yarn ``` 
+3. Create **.env** file add create environment variables. see [.env.example](https://github.com/kubo550/notefy/blob/main/.env.example)
+4. Start development server ``` npm run dev ``` *or*  ``` yarn dev ```
+5. Case of any problem fell free to send me direct message on github.
 
