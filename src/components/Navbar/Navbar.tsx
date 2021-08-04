@@ -1,20 +1,27 @@
+import { useRef } from "react";
 import { useThemeContext } from "context";
 import * as S from "./Navbar.style";
 import { GiMoon } from "react-icons/gi";
+import Link from "next/link";
 
 const Navbar = () => {
+  const nav = useRef<HTMLElement>(null);
   const { theme, toggleTheme } = useThemeContext();
 
   const isLightTheme = theme === "light";
 
   return (
-    <S.Container>
+    <S.Container ref={nav}>
       <S.NavLink href='/'>Notefy</S.NavLink>
 
-      <div>
-        <S.NavLink href='/'>Home</S.NavLink>
-        <S.NavLink href='/create'>Create</S.NavLink>
-      </div>
+      <S.Links>
+        <Link href='/' passHref>
+          <S.NavLink>Home</S.NavLink>
+        </Link>
+        <Link href='/create' passHref>
+          <S.NavLink>Create</S.NavLink>
+        </Link>
+      </S.Links>
 
       <S.ToggleContainer>
         <GiMoon />

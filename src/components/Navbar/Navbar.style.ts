@@ -1,14 +1,43 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { darken } from "polished";
 
 export const Container = styled.nav`
+  position: relative;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 100%;
+  padding: 10px 10px;
+  background-color: ${props => darken(0.2, props.theme.colors.background)};
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 `;
 
-export const NavLink = styled(Link)`
-  font-size: 32px;
+export const Links = styled.div`
+  width: 50%;
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export const Mobile = styled.div`
+  display: none;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    display: block;
+  }
+`;
+
+export const NavLink = styled.a`
+  font-size: 22px;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  transition: 0.3s;
+
+  &:hover {
+    color: #d2e1d2;
+  }
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: 16px;

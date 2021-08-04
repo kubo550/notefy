@@ -10,10 +10,11 @@ const fonts = {
 };
 
 const light = {
-  primary: "#FFBD54",
-  secondary: "red",
-  text: "#d28445",
-  background: "#eee",
+  primary: "#219ebc",
+  secondary: "#8ecae6",
+  text: "#000814",
+  background: "#d8e2dc",
+  extra: "#00296b",
 };
 
 const dark = {
@@ -21,6 +22,7 @@ const dark = {
   secondary: "blue",
   text: "orange",
   background: "#111",
+  extra: "#00296b",
 };
 
 const theme = {

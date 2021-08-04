@@ -4,6 +4,7 @@ import { useDataSave } from "hooks";
 import { useState } from "react";
 import { generatePassword } from "utils";
 import * as S from "styles/pages/create.style";
+import { useRouter } from "next/router";
 
 const Content = styled.div`
   width: 100%;
@@ -14,7 +15,8 @@ const passLength = 14;
 const Create = () => {
   const [error, setError] = useState<null | string>(null);
   const [note, setNote] = useState("");
-
+  const [disableButton, setDisableButton] = useState(false);
+  const router = useRouter();
   const { dbErr, loading, saveData } = useDataSave("notes");
 
   const handleSaveData = async () => {
@@ -25,9 +27,18 @@ const Create = () => {
     }
 
     const password = generatePassword(passLength);
-    saveData({
+
+    const id = await saveData({
       note,
       password,
+    });
+    if (dbErr) {
+      return;
+    }
+    setDisableButton(true);
+    router.push({
+      pathname: "/success",
+      query: { id },
     });
   };
 
@@ -49,8 +60,8 @@ const Create = () => {
           rows={15}
           cols={65}
         />
-        <Button disabled={loading} onClick={handleSaveData}>
-          {loading ? "Loading" : "Save"}
+        <Button disabled={loading || disableButton} onClick={handleSaveData}>
+          {loading ? "Loading" : disableButton ? "creating..." : "create"}
         </Button>
       </Content>
     </Container>

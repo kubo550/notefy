@@ -61,3 +61,10 @@ export const TextArea = styled.textarea`
     padding: 2px;
   }
 `;
+
+export const Center = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

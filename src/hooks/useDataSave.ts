@@ -1,4 +1,3 @@
-import Router from "next/router";
 import { firestore } from "firestore";
 import { useCallback, useState } from "react";
 
@@ -9,15 +8,11 @@ export const useDataSave = (collection: string) => {
   const saveData = useCallback(
     async <T>(data: T) => {
       setLoading(true);
+      setDbErr(null);
 
       try {
         const res = await firestore.collection(collection).add(data);
-        const id = res.id;
-
-        Router.push({
-          pathname: "/success",
-          query: { id },
-        });
+        return res.id;
       } catch (err) {
         setDbErr(err.message);
       } finally {

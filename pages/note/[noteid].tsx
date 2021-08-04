@@ -27,7 +27,7 @@ const Note: React.FC<NoteProps> = ({ id, note, error }) => {
     try {
       await firestore.collection("notes").doc(id).update({ note: text });
       router.reload();
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const incorrectPass = password !== note.password;
@@ -38,12 +38,12 @@ const Note: React.FC<NoteProps> = ({ id, note, error }) => {
 
   return (
     <div>
-      <Subtitle center> Twoja notatka</Subtitle>
+      <Subtitle center>Your note</Subtitle>
 
       {!editing ? (
         <>
           <p> {note.note} </p>
-          <button onClick={handleStartEditing}> Edytuj </button>
+          <button onClick={handleStartEditing}> Edit </button>
         </>
       ) : (
         <>
@@ -61,9 +61,9 @@ const Note: React.FC<NoteProps> = ({ id, note, error }) => {
           />
 
           <button disabled={incorrectPass} onClick={handleSaveNote}>
-            Zapisz
+            Save
           </button>
-          <button onClick={() => setEditing(false)}> Anuluj </button>
+          <button onClick={() => setEditing(false)}> Cancel </button>
         </>
       )}
     </div>
