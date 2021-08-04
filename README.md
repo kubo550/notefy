@@ -11,7 +11,6 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
 
 ## Features 
 
-
 <details> 
   <summary> NPM packages </summary>
    
@@ -37,7 +36,6 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
 
 </details>
 
-
 <details> 
   <summary> Other features </summary>
 
@@ -48,7 +46,6 @@ Online notebook 100% free no account. Make own note in 10 seconds and share it t
  * Custom hooks
  
 </details>
-
 
 
 ## Preview
