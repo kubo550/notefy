@@ -33,6 +33,8 @@ const Create = () => {
       password,
     });
     if (dbErr) {
+      console.log(dbErr);
+
       return;
     }
     setDisableButton(true);
